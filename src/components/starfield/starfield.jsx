@@ -1,8 +1,16 @@
+/* 
+Starfield code from https://codepen.io/Jenbo/pen/pgmZwB and costumized for this application
+
+useRef to get a reference to this canvas html element
+
+useEffect draws all stars AFTER building up this webpage
+*/
+
 import React, { useRef, useEffect } from "react";
 import classes from "./style.module.css";
 
 export default function Starfield() {
-  let canvasRef = useRef();
+  const canvasRef = useRef();
   useEffect(() => {
     function Star(x, y, r, color) {
       this.x = x;
@@ -32,24 +40,24 @@ export default function Starfield() {
       },
     };
 
-    var canvas = canvasRef.current;
-    var context = canvas.getContext("2d");
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
 
-    var C_WIDTH = (canvas.width = document.body.offsetWidth);
-    var C_HEIGHT = (canvas.height = document.body.offsetHeight);
+    const C_WIDTH = (canvas.width = document.body.offsetWidth);
+    const C_HEIGHT = (canvas.height = document.body.offsetHeight);
 
     function randomColor() {
-      var arrColors = ["ffffff", "ffecd3", "bfcfff"];
+      const arrColors = ["ffffff", "ffecd3", "bfcfff"];
       return "#" + arrColors[Math.floor(Math.random() * 3)];
     }
 
-    var arrStars = [];
+    const arrStars = [];
     for (let i = 0; i < 400; i++) {
-      var randX = Math.floor(Math.random() * C_WIDTH + 1);
-      var randY = Math.floor(Math.random() * C_HEIGHT + 1);
-      var randR = Math.random() * 1.7 + 0.5;
+      const randX = Math.floor(Math.random() * C_WIDTH + 1);
+      const randY = Math.floor(Math.random() * C_HEIGHT + 1);
+      const randR = Math.random() * 1.7 + 0.5;
 
-      var star = new Star(randX, randY, randR, randomColor());
+      const star = new Star(randX, randY, randR, randomColor());
       arrStars.push(star);
     }
     function update() {
@@ -63,10 +71,10 @@ export default function Starfield() {
             Remove comments below these for a cool trailing effect & comment
             out the context.clearRect.
           */
-      //context.fillStyle = 'rgba(255, 255, 255, .1)';
-      //context.fillRect(0,0,C_WIDTH,C_HEIGHT);
+      //context.fillStyle = "rgba(255, 255, 255, 0.1)";
+      //context.fillRect(0, 0, C_WIDTH, C_HEIGHT);
       context.clearRect(0, 0, C_WIDTH, C_HEIGHT);
-      for (var i = 0; i < arrStars.length; i++) {
+      for (let i = 0; i < arrStars.length; i++) {
         arrStars[i].render();
       }
       requestAnimationFrame(animate);

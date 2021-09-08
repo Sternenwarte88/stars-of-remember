@@ -1,7 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Nunito:wght@300&display=swap");
+
 html,
 body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: black;
+}
+
+h1 {
+  font-family: "Dancing Script";
+  color: #fdc500;
+  
+}
+
+p {
+  font-family: "Nunito";
+  color: #fdc500;
+}
+
+button {
+  display: inline-block;
+  background-color: #fdc500;
+  padding: 0.5rem 1rem;
+  margin: 0 2rem;
+}
+
+label {
+  color: #fdc500;
 }

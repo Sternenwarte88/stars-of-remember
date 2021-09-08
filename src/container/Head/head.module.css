@@ -1,0 +1,9 @@
+.buttons {
+  display: inline-flex;
+  width: 75%;
+  justify-content: flex-end;
+}
+h1 {
+  display: inline-flex;
+  justify-content: flex-start;
+}
